@@ -1,11 +1,11 @@
 # -*- coding: UTF-8 -*-
 from django.urls import path
 
-from .views import TasksCreateView
+from .views.tasks import TasksCreateView
 
 urlpatterns = [
 
     # tasks 列表清单？
-    path('', TasksCreateView.as_view()),
+    path('tasks/', TasksCreateView.as_view()),
 
 ]

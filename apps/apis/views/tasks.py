@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.views import View
 
 from core.algorithms.algorithmLibrary import AlgorithmLibrary
-from .tasks import execute_algorithm
+from ..tasks import execute_algorithm
 
 logger = logging.getLogger(__name__)
 

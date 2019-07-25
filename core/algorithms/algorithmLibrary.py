@@ -3,7 +3,7 @@ import importlib
 import json
 import logging
 
-from algorithm.models import Algorithm
+from apis.models.algorithm import Algorithm
 from expands.singleton import Singleton
 
 logger = logging.getLogger("default")

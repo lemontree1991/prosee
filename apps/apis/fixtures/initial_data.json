@@ -1,6 +1,6 @@
 [
   {
-    "model": "algorithm.algorithm",
+    "model": "apis.algorithm",
     "pk": "002",
     "fields": {
       "name": "\u6590\u6ce2\u90a3\u5951\u6570\u5217\u6d4b\u8bd5",
@@ -9,7 +9,7 @@
     }
   },
   {
-    "model": "algorithm.algorithm",
+    "model": "apis.algorithm",
     "pk": "003",
     "fields": {
       "name": "pandas\u6d4b\u8bd5",
