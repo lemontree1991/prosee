@@ -47,6 +47,7 @@ class TaskProgressView(View):
         else:
             resp = {'state': the_task.state, 'progress': 0}
         result["data"] = resp
+        result["code"] = 200
         result["message"] = "查询成功"
         return JsonResponse(result, status=200)
 
