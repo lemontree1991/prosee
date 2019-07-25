@@ -2,13 +2,16 @@ import json
 
 from celery.result import AsyncResult
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.views import View
 
 from expands.celery.client import CeleryClient
 
 
 class TaskProgressView(View):
+    def get(self,request):
+        return render_to_response("base.html",{"aaa":"**************"})
+
     def post(self, request):
         result = {
             "code": 400,
