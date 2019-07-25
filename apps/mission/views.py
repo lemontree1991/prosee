@@ -31,7 +31,7 @@ class TasksCreateView(View):
 
         except Exception as e:
             is_valid = False
-            if isinstance(e,JsonResponse):
+            if isinstance(e,JSONDecodeError):
                 result["message"] = "错误的请求格式"
             elif isinstance(e,KeyError):
                 result["message"] = "缺少必要参数"
