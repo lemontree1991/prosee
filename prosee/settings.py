@@ -118,8 +118,6 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-import os
-
 ENV = os.getenv("ENV", "develop")
 
 from .configs.common import *
