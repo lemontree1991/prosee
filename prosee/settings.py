@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 ENV = os.getenv("ENV", "develop")
 
-from .configs.common import *
+from .configs.commons import *
 
 if ENV == "develop":
     from .configs.local import *
