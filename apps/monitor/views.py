@@ -76,3 +76,8 @@ class AlgorithmLibView(View):
     def get(self, request):
         algorithms = Algorithm.objects.all()
         return render_to_response("algorithm.html", {"algorithms": algorithms})
+
+
+class TaskIndexView(View):
+    def get(self, request):
+        return render_to_response("task.html")

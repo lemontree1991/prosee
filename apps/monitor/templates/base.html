@@ -35,13 +35,10 @@
               <li class="nav-item">
                   <a href="{% url "workers_status" %}"><i class="mdi mdi-home"></i>工作节点</a>
               </li>
-              <li class="nav-item nav-item-has-subnav">
-                  <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>任务管理</a>
-                  <ul class="nav nav-subnav">
-                    <li> <a href="lyear_ui_buttons.html">按钮</a> </li>
-                    <li> <a href="lyear_ui_cards.html">卡片</a> </li>
-                  </ul>
-            </li>
+              <li class="nav-item">
+                  <a href="{% url "task_index" %}"><i class="mdi mdi-palette"></i>任务管理</a>
+              </li>
+
               <li class="nav-item">
                   <a href="{% url "algorithms" %}"><i class="mdi mdi-format-align-justify"></i>算法库</a>
               </li>
