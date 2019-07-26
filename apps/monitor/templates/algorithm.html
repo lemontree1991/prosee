@@ -12,23 +12,114 @@
                         <th>算法ID</th>
                         <th>算法名称</th>
                         <th>路径</th>
-                        <th>类命</th>
-
+                        <th>类名</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody >
-                        {% for alg in algorithms %}
-                            <tr>
-                                <td>{{ alg.id }}</td>
-                                <td>{{ alg.name }}</td>
-                                <td>{{ alg.path }}</td>
-                                <td>{{ alg.class_name }}</td>
-                            </tr>
-                        {% endfor %}
+                    <tbody>
+                    {% for alg in algorithms %}
+                        <tr>
+                            <td>{{ alg.id }}</td>
+                            <td>{{ alg.name }}</td>
+                            <td>{{ alg.path }}</td>
+                            <td>{{ alg.class_name }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#exampleModal" data-whatever="{{ alg.id }}">创建任务
+                                    </button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="exampleModalLabel">新消息</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="recipient-id"
+                                                                   class="control-label">算法ID：</label>
+                                                            <input type="text" class="form-control" id="recipient-id">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-params"
+                                                                   class="control-label">算法参数：</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="recipient-params">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="recipient-countdown"
+                                                                   class="control-label">延迟秒数：</label>
+                                                            <input type="text" class="form-control"
+                                                                   id="recipient-countdown">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        关闭
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary" id="commit">提交任务
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
 
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var recipient = button.data('whatever');
+            var modal = $(this);
+            modal.find('.modal-title').text('算法ID为' + recipient);
+            modal.find('#recipient-id').val(recipient)
+        });
+
+        // 提交任务
+        $("#commit").click(function () {
+            $.ajax({
+                type: 'POST',
+                dataType: "json",
+                url: "{% url "commit_task" %}",
+                contentType: "application/json;charset=utf-8",
+
+                data: JSON.stringify(
+                    {
+                        alg_id: $('#recipient-id').val(),
+                        params: $('#recipient-params').val(),
+                        countdown: $('#recipient-countdown').val(),
+
+                        /*password:$("#password").val()*/
+                    }
+                ),
+                success: function (res) {
+
+                    alert(res.message)
+                },
+                error: function () {
+//            $("#test").html("发生错误:"+jqXHR.status);
+                    alert("发生错误" + jqXHR.status);
+                }
+            });
+
+        })
+
+    </script>
 {% endblock %}

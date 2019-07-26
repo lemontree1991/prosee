@@ -6,6 +6,6 @@ from .views.tasks import TasksCreateView
 urlpatterns = [
 
     # tasks 列表清单？
-    path('tasks/', TasksCreateView.as_view()),
+    path('tasks/', TasksCreateView.as_view(),name="commit_task"),
 
 ]
