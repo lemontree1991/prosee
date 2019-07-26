@@ -10,7 +10,7 @@ from expands.celery.client import CeleryClient
 
 class TaskProgressView(View):
     def get(self,request):
-        return render_to_response("index.html",{"aaa":"**************"})
+        return render_to_response("index.html")
 
     def post(self, request):
         result = {

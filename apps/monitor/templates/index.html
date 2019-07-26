@@ -45,3 +45,49 @@
         </div>
     </div>
 {% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(function () {
+            initData();
+        });
+
+        //加载初始化数据
+        function initData() {
+            $.ajax({
+                type: 'POST',
+                dataType: "json",
+                url: "{% url "tasks_progress" %}",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(
+                    {
+                    task_id: "e9bb09a5-706c-4f08-85d8-c4646687ba11"
+                    /*password:$("#password").val()*/
+                }
+                ),
+                success: function (res) {
+                    alert("加载数据");
+                    if (res.code == "0") {
+                        console.log(res);
+                        alert(res.msg);
+                        var info = res.data;
+
+                        $("#name").attr("value", info.name);
+                        $("#email").attr("value", info.email);
+                        $("#password").attr("value", info.password);
+                        $("#phone").attr("value", info.phone);
+                        $("#address").attr("value", info.address);
+                        $("#birthday").attr("value", info.birthday);
+                        $("#picture").attr("src", info.icon);
+                    } else {
+                        alert("用户信息不合法，或邮箱已被占用");
+                    }
+                },
+                error: function () {
+//            $("#test").html("发生错误:"+jqXHR.status);
+                    alert("发生错误");
+                }
+            });
+        }
+    </script>
+{% endblock %}

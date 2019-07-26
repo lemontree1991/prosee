@@ -5,6 +5,6 @@ from monitor.views import TaskProgressView
 urlpatterns = [
 
     # 获取任务进度
-    path('tasks/progress/', TaskProgressView.as_view()),
+    path('tasks/progress/', TaskProgressView.as_view(),name="tasks_progress"),
 
 ]
