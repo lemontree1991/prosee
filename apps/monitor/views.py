@@ -5,11 +5,12 @@ from django.http import JsonResponse
 from django.shortcuts import render_to_response
 from django.views import View
 
+from apis.models.algorithm import Algorithm
 from expands.celery.client import CeleryClient
 
 
 class TaskProgressView(View):
-    def get(self,request):
+    def get(self, request):
         return render_to_response("index.html")
 
     def post(self, request):
@@ -45,7 +46,7 @@ class TaskProgressView(View):
 
                 resp = {'state': 'waitting', 'progress': 0}
             else:
-                result["message"]= "task id不存在"
+                result["message"] = "task id不存在"
                 return JsonResponse(result, status=404)
         else:
             resp = {'state': the_task.state, 'progress': 0}
@@ -56,9 +57,10 @@ class TaskProgressView(View):
 
 
 class WorkerStatusView(View):
-    def get(self,request):
+    def get(self, request):
         return render_to_response("index.html")
-    def post(self,request):
+
+    def post(self, request):
         result = {
             "code": 200,
             "message": "成功",
@@ -67,4 +69,10 @@ class WorkerStatusView(View):
         instance = CeleryClient()
         result["data"] = instance.workers()
 
-        return JsonResponse(result,status=200)
+        return JsonResponse(result, status=200)
+
+
+class AlgorithmLibView(View):
+    def get(self, request):
+        algorithms = Algorithm.objects.all()
+        return render_to_response("algorithm.html", {"algorithms": algorithms})
