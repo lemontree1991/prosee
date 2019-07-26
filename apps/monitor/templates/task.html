@@ -1,1 +1,273 @@
 {% extends "base.html" %}
+{% block custom_crumb %} 任务管理 - 列表{% endblock %}
+{% block content %}
+
+    <div class="card">
+        <div class="card-header"><h4>运行中任务</h4></div>
+        <div class="card-body">
+
+            <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">worker1</a></li>
+                <li><a href="#profile" role="tab" id="profile-tab" data-toggle="tab">worker1</a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="home">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+
+                                <th>名称</th>
+                                <th>状态</th>
+                                <th>并发数量</th>
+                                <th>队列</th>
+                                <th>完成任务数</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="worker2_list">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+
+                                <th>名称</th>
+                                <th>状态</th>
+                                <th>并发数量</th>
+                                <th>队列</th>
+                                <th>完成任务数</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="worker2_list">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+{#        <div class="card-header"><h4>计划任务</h4></div>#}
+{#        <div class="card-body">#}
+{##}
+{#            <ul id="myTabs" class="nav nav-tabs" role="tablist">#}
+{#                <li class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">worker1</a></li>#}
+{#                <li><a href="#profile" role="tab" id="profile-tab" data-toggle="tab">worker1</a></li>#}
+{##}
+{#            </ul>#}
+{#            <div id="myTabContent" class="tab-content">#}
+{#                <div class="tab-pane fade active in" id="home">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="tab-pane fade" id="profile">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{#        <div class="card-header"><h4>预执行任务</h4></div>#}
+{#        <div class="card-body">#}
+{##}
+{#            <ul id="myTabs" class="nav nav-tabs" role="tablist">#}
+{#                <li class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">worker1</a></li>#}
+{#                <li><a href="#profile" role="tab" id="profile-tab" data-toggle="tab">worker1</a></li>#}
+{##}
+{#            </ul>#}
+{#            <div id="myTabContent" class="tab-content">#}
+{#                <div class="tab-pane fade active in" id="home">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="tab-pane fade" id="profile">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+{##}
+{#        <div class="card-header"><h4>被取消任务</h4></div>#}
+{#        <div class="card-body">#}
+{##}
+{#            <ul id="myTabs" class="nav nav-tabs" role="tablist">#}
+{#                <li class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">worker1</a></li>#}
+{#                <li><a href="#profile" role="tab" id="profile-tab" data-toggle="tab">worker1</a></li>#}
+{##}
+{#            </ul>#}
+{#            <div id="myTabContent" class="tab-content">#}
+{#                <div class="tab-pane fade active in" id="home">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="tab-pane fade" id="profile">#}
+{#                    <div class="table-responsive">#}
+{#                        <table class="table table-bordered">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{##}
+{#                                <th>名称</th>#}
+{#                                <th>状态</th>#}
+{#                                <th>并发数量</th>#}
+{#                                <th>队列</th>#}
+{#                                <th>完成任务数</th>#}
+{#                                <th>操作</th>#}
+{#                            </tr>#}
+{#                            </thead>#}
+{#                            <tbody id="worker2_list">#}
+{##}
+{#                            </tbody>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(function () {
+            query_active_tasks();
+        });
+
+        // 查询workers状态
+        function query_active_tasks() {
+            $.ajax({
+                type: 'POST',
+                dataType: "json",
+                url: "{% url "tasks_active" %}",
+                contentType: "application/json;charset=utf-8",
+
+                success: function (res) {
+
+                    if (res.code == "200") {
+                            $(res.data).each(
+                                function (index,worker) {
+                                    $("#worker_list").append(
+                                        "<tr><td>"+worker.name+"</td>"
+                                        +"<td>"+worker.status+"</td>"
+                                        +"<td>"+worker.concurrency+"</td>"
+                                        +"<td>"+worker.queues+"</td>"
+                                        +"<td>"+worker.complete+"</td>"
+                                        +"<td>"
+                                        +"<div class='btn-group'>"
+                                        +"<a class='btn btn-xs btn-default' href='' title='ping' data-toggle='tooltip'><i class='mdi mdi-lan-connect'></i></a>"
+                                        +"<a class='btn btn-xs btn-default' href='' title='重启' data-toggle='tooltip'><i class='mdi mdi-restart'></i></a>"
+                                        +"<a class='btn btn-xs btn-default' href='' title='关闭' data-toggle='tooltip'><i class='mdi mdi-window-close'></i></a>"
+                                        +"</div>"
+                                        +"</td></tr>"
+                                    )
+                                }
+                            )
+
+                    } else {
+                        alert("用户信息不合法，或邮箱已被占用");
+                    }
+                },
+                error: function () {
+//            $("#test").html("发生错误:"+jqXHR.status);
+                    alert("发生错误"+jqXHR.status);
+                }
+            });
+        }
+
+    </script>
+{% endblock %}

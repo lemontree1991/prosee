@@ -81,3 +81,17 @@ class AlgorithmLibView(View):
 class TaskIndexView(View):
     def get(self, request):
         return render_to_response("task.html")
+
+
+class ActiveTaskView(View):
+    def post(self, request):
+        result = {
+            "code": 200,
+            "message": "成功",
+            "data": None
+        }
+        instance = CeleryClient()
+
+        active_tasks = instance.active_tasks()
+        result["data"] = active_tasks
+        return JsonResponse(result, status=200)

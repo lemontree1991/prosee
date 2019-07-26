@@ -1,6 +1,6 @@
 from django.urls import path
 
-from monitor.views import TaskProgressView,WorkerStatusView,AlgorithmLibView,TaskIndexView
+from monitor.views import TaskProgressView,WorkerStatusView,AlgorithmLibView,TaskIndexView,ActiveTaskView
 
 urlpatterns = [
 
@@ -12,4 +12,7 @@ urlpatterns = [
     path('algorithms/', AlgorithmLibView.as_view(),name="algorithms"),
     # 任务首页
     path('tasks/index/', TaskIndexView.as_view(),name="task_index"),
+
+    # 任务运行列表
+    path('tasks/active/', ActiveTaskView.as_view(), name="tasks_active"),
 ]
