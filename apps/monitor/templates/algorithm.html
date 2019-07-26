@@ -103,7 +103,7 @@
                 data: JSON.stringify(
                     {
                         alg_id: $('#recipient-id').val(),
-                        params: $('#recipient-params').val(),
+                        params: $('#recipient-params').val().split(","),
                         countdown: $('#recipient-countdown').val(),
 
                         /*password:$("#password").val()*/

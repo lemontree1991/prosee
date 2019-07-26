@@ -26,7 +26,7 @@ class TasksCreateView(View):
 
             dict_data = json.loads(data)
             alg_id = dict_data["alg_id"]
-            params = eval(dict_data["params"])
+            params = list(map(lambda x:int(x),dict_data["params"]))
             countdown = int(dict_data.get("countdown",0))
 
         except Exception as e:
