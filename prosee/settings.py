@@ -132,3 +132,4 @@ if ENV == "develop":
     from .configs.local import *
 else:
     from .configs.release import *
+

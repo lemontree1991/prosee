@@ -54,3 +54,17 @@ class TaskProgressView(View):
         result["message"] = "查询成功"
         return JsonResponse(result, status=200)
 
+
+class WorkerStatusView(View):
+    def get(self,request):
+        return render_to_response("index.html")
+    def post(self,request):
+        result = {
+            "code": 200,
+            "message": "成功",
+            "data": None
+        }
+        instance = CeleryClient()
+        result["data"] = instance.workers()
+
+        return JsonResponse(result,status=200)

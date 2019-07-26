@@ -10,7 +10,7 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379/2"
 
 # 导入目标任务文件
 CELERY_IMPORTS = (
-    "mission.tasks",
+    "apis.tasks",
 )
 
 CELERY_QUEUES = {
