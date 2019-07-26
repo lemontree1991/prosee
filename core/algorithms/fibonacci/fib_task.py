@@ -22,8 +22,8 @@ class FibTask(BaseAlgorithm):
         :return:
         """
 
-        start_num = self.args[0]
-        num_count = self.args[1]
+        start_num = int(self.args[0])
+        num_count = int(self.args[1])
         result = []
         for i in range(num_count):
             result.append(fib(start_num+i))
