@@ -4,7 +4,7 @@
 
     <div class="card">
         <div class="card-header"><h4>运行中任务</h4></div>
-        <div class="card-body">
+        <div class="card-body" id="card-body">
 
             <ul id="myTabs" class="nav nav-tabs" role="tablist">
                 <li class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab">worker1</a></li>
@@ -238,29 +238,10 @@
 
                 success: function (res) {
 
-                    if (res.code == "200") {
-                            $(res.data).each(
-                                function (index,worker) {
-                                    $("#worker_list").append(
-                                        "<tr><td>"+worker.name+"</td>"
-                                        +"<td>"+worker.status+"</td>"
-                                        +"<td>"+worker.concurrency+"</td>"
-                                        +"<td>"+worker.queues+"</td>"
-                                        +"<td>"+worker.complete+"</td>"
-                                        +"<td>"
-                                        +"<div class='btn-group'>"
-                                        +"<a class='btn btn-xs btn-default' href='' title='ping' data-toggle='tooltip'><i class='mdi mdi-lan-connect'></i></a>"
-                                        +"<a class='btn btn-xs btn-default' href='' title='重启' data-toggle='tooltip'><i class='mdi mdi-restart'></i></a>"
-                                        +"<a class='btn btn-xs btn-default' href='' title='关闭' data-toggle='tooltip'><i class='mdi mdi-window-close'></i></a>"
-                                        +"</div>"
-                                        +"</td></tr>"
-                                    )
-                                }
-                            )
-
-                    } else {
-                        alert("用户信息不合法，或邮箱已被占用");
+                    for (worker in res.data){
+                        alert(worker + res.data[worker])
                     }
+
                 },
                 error: function () {
 //            $("#test").html("发生错误:"+jqXHR.status);
